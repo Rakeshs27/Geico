@@ -25,6 +25,7 @@ import com.google.common.io.Files;
  */
 
 public class WebDriverUtility {
+	public Select select;
 	/**
 	 * this method wait for 20 second for page loading
 	 * @param driver
@@ -69,6 +70,14 @@ public class WebDriverUtility {
 	       
 	   }
 	   /**
+	    * This method is used to intialize the select class
+	    * @param element
+	    */
+	   public void intializeSelect(WebElement element) {
+	   	
+	   	select = new Select(element);
+	   }
+	   /**
 	    * this methods enables user to handle dropdown using visible text
 	    * @param element
 	    * @param option
@@ -91,6 +100,7 @@ public class WebDriverUtility {
 		   Select select=new Select(element);
 		   select.selectByIndex(index);   
 	   }
+
 	   
 	   /**
 	    * This method will perform mouse over action
@@ -121,21 +131,17 @@ public class WebDriverUtility {
 	    * @param driver
 	    * @param partialWinTitle
 	    */
-	   public void switchToWindow(WebDriver driver, String partialWinTitle)
+	   public void switchToWindow(WebDriver driver, String Text)
 	   {
-		   Set<String> window = driver.getWindowHandles();
-		   Iterator<String> it = window.iterator();
-		   while(it.hasNext())
-		   {
-			   String winId=it.next();
-			   String title=driver.switchTo().window(winId).getTitle();
-	           if(title.contains(partialWinTitle))
-	           {
-	        	   break;
-	           }
-			   
-		   }
-		   
+		   Set<String> sessionsIDs = driver.getWindowHandles();
+			for(String id:sessionsIDs)
+			{
+				driver.switchTo().window(id);
+				if(driver.getTitle().contains(Text))
+				{
+					break;
+				}
+			}
 	   }
 
 		   
@@ -196,7 +202,7 @@ public class WebDriverUtility {
 		    public void passEnterKey(WebDriver driver) {
 		 	   Actions act = new Actions(driver);
 		 	   act.sendKeys(Keys.ENTER).perform();
-		    } 
+		    }
 		    	
 
 }

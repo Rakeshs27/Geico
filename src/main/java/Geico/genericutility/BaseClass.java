@@ -21,7 +21,7 @@ public class BaseClass {
 	
 		public WebDriver driver;
 		public static WebDriver sDriver;
-		
+		 static WebDriver staticdriver;
 		  /*Object Creation for Lib*/
 			
 			public JavaUtility jLib = new JavaUtility();
@@ -34,34 +34,43 @@ public class BaseClass {
 			System.out.println("========================connect to DB========================");
 		}
 		
-//		@Parameters("BROWSER")
-//		@BeforeClass
-//		public void configBC(String BROWSER) {
-//		
-//			
-//			System.out.println("=============Launch the Browser=======");
-//			if(BROWSER.equals("chrome")) {
-//			driver = new ChromeDriver();
-//			}else if(BROWSER.equals("firefox")){
-//				driver = new FirefoxDriver();
-//			}else if(BROWSER.equals("opera")){
-//			driver = new OperaDriver();
-//			}else {
-//				System.out.println("browser not found");
-//			}
-//     		wLib.waitUntilPageLoad(driver);
-//			driver.manage().window().maximize();
-//			
-//		}
 		
-	
-		@BeforeClass
-		public void configBC() {
-			driver= new ChromeDriver();
-     		wLib.waitUntilPageLoad(driver);
-			driver.manage().window().maximize();
+		/*	@Parameters("BROWSER")
+			@BeforeClass
+			public void configBC(String BROWSER) {
 			
-		}
+				
+				System.out.println("=============Launch the Browser=======");
+				if(BROWSER.equals("chrome")) {
+				driver = new ChromeDriver();
+				}else if(BROWSER.equalsIgnoreCase("firefox")){
+					driver = new FirefoxDriver();
+				}else if(BROWSER.equalsIgnoreCase("opera")){
+				driver = new OperaDriver();
+				}else {
+					System.out.println("browser not found");
+				}
+	     		wLib.waitUntilPageLoad(driver);
+				driver.manage().window().maximize();
+				
+			}*/
+			
+		
+		    @BeforeClass
+			public void configBC() {
+				driver= new ChromeDriver();
+	     		wLib.waitUntilPageLoad(driver);
+				driver.manage().window().maximize();
+				
+			}
+			
+		  /* @BeforeClass
+			public void configBC() {
+				driver= new FirefoxDriver();
+	     		wLib.waitUntilPageLoad(driver);
+				driver.manage().window().maximize();
+				
+			}*/
 		
 		@BeforeMethod
 		public void configBM() throws Throwable {

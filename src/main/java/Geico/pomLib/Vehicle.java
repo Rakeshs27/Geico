@@ -65,9 +65,9 @@ public class Vehicle {
 	    * @param index
 	    */
 	   
-	   public void select(WebElement element, int index)
+	  /* public void select(WebElement element, int index)
 	   {
 		   Select select=new Select(element);
 		   select.selectByIndex(index);   
-	   }
+	   } */
 }

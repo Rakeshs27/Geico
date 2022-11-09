@@ -15,7 +15,7 @@ public class FileUtility {
 	  * @return
 	  * @throws Throwable
 	  */
-	    public String getPropertyKeyValue(String key) throws Throwable {
+	    public static  String getPropertyKeyValue(String key) throws Throwable {
 	    	 FileInputStream fis = new FileInputStream("./data/data.properties");
 	    	 Properties pobj = new Properties();
 	    	 pobj.load(fis);

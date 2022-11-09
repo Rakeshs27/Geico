@@ -25,12 +25,13 @@ public class ExcelUtility {
        * @return
        * @throws Throwable
        */
-	public String getDataFromExcel(String sheetName , int rowNum, int celNum) throws Throwable {
+	public static String getDataFromExcel(String sheetName , int rowNum, int celNum) throws Throwable {
 		FileInputStream fis  = new FileInputStream("./data/workbook.xlsx");
 		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet(sheetName);
+		/*Sheet sh = wb.getSheet(sheetName);
 		Row row = sh.getRow(rowNum);
-		String data = row.getCell(celNum).getStringCellValue();
+		String data = row.getCell(celNum).getStringCellValue();*/
+		String data=wb.getSheet("Sheet1").getRow(rowNum).getCell(celNum).getStringCellValue();
 		wb.close();
 		return data;
 	}
