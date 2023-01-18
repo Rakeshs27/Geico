@@ -28,6 +28,7 @@ public class Dropdownlist {
 		 driver.get("https://demoqa.com/select-menu");
 		 driver.manage().window().maximize();
 		 WebDriverUtility String=new WebDriverUtility();
+		// this is my github
 		/* Select s = new Select(driver.findElement(By.id("oldSelectMenu")));
 		   // String.select(dp1, "Red");
 		    List<WebElement> list=s.getOptions();
